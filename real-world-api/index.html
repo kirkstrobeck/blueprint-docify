@@ -243,8 +243,8 @@ a.list-group-item.heading {
         <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
     }
 }
-</code></pre></li></ul></section><section id="posts-posts-collection-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve all Posts</span></div><div style="float:left"><a href="#posts-posts-collection-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/stream/0/posts</code></div></div><div class="panel-body"><p>Retrieves all posts. </p>
-</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#3fa170a47ec190525c565b0f3882f263" class="pull-right">Toggle</a></li><li id="3fa170a47ec190525c565b0f3882f263" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+</code></pre></li></ul></section><section id="posts-posts-collection-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve all Posts</span></div><div style="float:left"><a href="#posts-posts-collection-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/stream/0/posts</code></div></div><div class="panel-body"><p>Retrieves all posts.</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#98b1aaa52ed30b3df7d520c61ed00613" class="pull-right">Toggle</a></li><li id="98b1aaa52ed30b3df7d520c61ed00613" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
     <span class="hljs-string">"data"</span>: [
         {
             <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is a string
@@ -262,7 +262,7 @@ a.list-group-item.heading {
     <span class="hljs-string">"meta"</span>: {
         <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
     }
-}    
+}
 </code></pre></li></ul></section><h4 id="posts-stars">Stars&nbsp;<a href="#posts-stars"><i class="fa fa-link"></i></a></h4><p>A User’s stars are visible to others, but they are not automatically added to your followers’ streams.</p>
 <section id="posts-stars-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Star a Post</span></div><div style="float:left"><a href="#posts-stars-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/stream/0/posts/{post_id}/star</code></div></div><div class="panel-body"><p>Save a given Post to the current User’s stars. This is just a “save” action, not a sharing action.</p>
 <p><em>Note: A repost cannot be starred. Please star the parent Post.</em></p>
