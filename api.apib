@@ -1,199 +1,146 @@
 FORMAT: 1A
+HOST: https://alpha-api.app.net
 
-# Gist Fox API
-Gist Fox API is a **pastes service** similar to [GitHub's Gist](http://gist.github.com).
+# Real World API
+This API Blueprint demonstrates a real world example documenting a portion of [App.net API](http://developers.app.net).
 
-## Authentication
-Currently the Gist Fox API does not provide authenticated access.
+NOTE: This document is a **work in progress**.
 
-## Media Types
-Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
+# Group Posts
+This section groups App.net post resources.
 
-Requests with a message-body are using plain JSON to set or update resource states.
-
-## Error States
-The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.
-
-# Gist Fox API Root [/]
-Gist Fox API entry point.
-
-This resource does not have any attributes. Instead it offers the initial API affordances in the form of the HTTP Link header and 
-HAL links.
-
-## Retrieve the Entry Point [GET]
-
-+ Response 200 (application/hal+json)
-    + Headers
-    
-            Link: <http:/api.gistfox.com/>;rel="self",<http:/api.gistfox.com/gists>;rel="gists"
-
-    + Body
-
-            {
-                "_links": {
-                    "self": { "href": "/" },
-                    "gists": { "href": "/gists?{since}", "templated": true }
-                }
-            }
-
-# Group Gist
-Gist-related resources of *Gist Fox API*.
-
-## Gist [/gists/{id}]
-A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
-
-The Gist resource has the following attributes: 
-
-- id
-- created_at
-- description
-- content
-
-The states *id* and *created_at* are assigned by the Gist Fox API at the moment of creation. 
-
+## Post [/stream/0/posts/{post_id}]
+A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed. Posts are closely tied to the follow graph...
 
 + Parameters
-    + id (string) ... ID of the Gist in the form of a hash.
+    + post_id (string, `1`) ... The id of the Post.
 
-+ Model (application/hal+json)
-
-    HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
-
-    + Headers
-
-            Link: <http:/api.gistfox.com/gists/42>;rel="self", <http:/api.gistfox.com/gists/42/star>;rel="star"
-
-    + Body
-
-            {
-                "_links": {
-                    "self": { "href": "/gists/42" },
-                    "star": { "href": "/gists/42/star" },
-                },
-                "id": "42",
-                "created_at": "2014-04-14T02:15:15Z",
-                "description": "Description of Gist",
-                "content": "String contents"
-            }
-
-### Retrieve a Single Gist [GET]
-+ Response 200
++ Model (application/json)
     
-    [Gist][]
-
-### Edit a Gist [PATCH]
-To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.
-
-+ Request (application/json)
-
-        {
-            "content": "Updated file contents"
+    ```js
+    {
+        "data": {
+            "id": "1", // note this is a string
+            "user": {
+                ...
+            },
+            "created_at": "2012-07-16T17:25:47Z",
+            "text": "@berg FIRST post on this new site #newsocialnetwork",
+            "html": "<span itemprop=\"mention\" data-mention-name=\"berg\" data-mention-id=\"2\">@berg</span> FIRST post on <a href=\"https://join.app.net\" rel=\"nofollow\">this new site</a> <span itemprop=\"hashtag\" data-hashtag-name=\"newsocialnetwork\">#newsocialnetwork</span>.",
+            "source": {
+                "client_id": "udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4",
+                "name": "Clientastic for iOS",
+                "link": "http://app.net"
+            },
+            "machine_only": false,
+            "reply_to": null,
+            "thread_id": "1",
+            "num_replies": 3,
+            "num_reposts": 0,
+            "num_stars": 0,
+            "entities": {
+                "mentions": [{
+                    "name": "berg",
+                    "id": "2",
+                    "pos": 0,
+                    "len": 5
+                }],
+                "hashtags": [{
+                    "name": "newsocialnetwork",
+                    "pos": 34,
+                    "len": 17
+                }],
+                "links": [{
+                    "text": "this new site",
+                    "url": "https://join.app.net"
+                    "pos": 20,
+                    "len": 13
+                }]
+            },
+            "you_reposted": false,
+            "you_starred": false
+        },
+        "meta": {
+            "code": 200,
         }
+    }
+    ```
+
+### Retrieve a Post [GET]
+Returns a specific Post.
 
 + Response 200
     
-    [Gist][]
+    [Post][]
 
-### Delete a Gist [DELETE]
+### Delete a Post [DELETE]
+Delete a Post. The current user must be the same user who created the Post. It returns the deleted Post on success.
+
 + Response 204
 
-## Gists Collection [/gists{?since}]
-Collection of all Gists.
+## Posts Collection [/stream/0/posts]
+A Collection of posts.
 
-The Gist Collection resource has the following attribute:
-
-- total
-
-In addition it **embeds** *Gist Resources* in the Gist Fox API.
-
-
-+ Model (application/hal+json)
-
-    HAL+JSON representation of Gist Collection Resource. The Gist resources in collections are embedded. Note the embedded Gists resource are incomplete representations of the Gist in question. Use the respective Gist link to retrieve its full representation.
-
-    + Headers
-
-            Link: <http:/api.gistfox.com/gists>;rel="self"
-
-    + Body
-
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
             {
-                "_links": {
-                    "self": { "href": "/gists" }
-                },
-                "_embedded": {
-                    "gists": [
-                        {
-                            "_links" : {
-                                "self": { "href": "/gists/42" }
-                            },
-                            "id": "42",
-                            "created_at": "2014-04-14T02:15:15Z",
-                            "description": "Description of Gist"
-                        }
-                    ]
-                },
-                "total": 1
-            }
-
-### List All Gists [GET]
-+ Parameters
-    + since (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Only gists updated at or after this time are returned.
-
-+ Response 200
-
-    [Gists Collection][]
-
-### Create a Gist [POST]
-To create a new Gist simply provide a JSON hash of the *description* and *content* attributes for the new Gist. 
-
-+ Request (application/json)
-
-        {
-            "description": "Description of Gist",
-            "content": "String content"
+                "id": "1", // note this is a string
+                ...
+            },
+            {
+                "id": "2",
+                ...
+            },
+            {
+                "id": "3",
+                ...
+            },
+        ],
+        "meta": {
+            "code": 200,
         }
+    }    
+    ```
+
+### Create a Post [POST]
+Create a new Post object. Mentions and hashtags will be parsed out of the post text, as will bare URLs...
+
++ Request
+    
+    [Post][]
 
 + Response 201
+    
+    [Post][]
 
-    [Gist][]
+### Retrieve all Posts [GET]
+Retrieves all posts. 
 
-## Star [/gists/{id}/star]
-Star resource represents a Gist starred status. 
++ Response 200
+    
+    [Posts Collection][]
 
-The Star resource has the following attribute:
-
-- starred
-
+## Stars [/stream/0/posts/{post_id}/star]
+A User’s stars are visible to others, but they are not automatically added to your followers’ streams.
 
 + Parameters
+    + post_id (string, `1`) ... The id of the Post.
 
-    + id (string) ... ID of the gist in the form of a hash
+### Star a Post [POST]
+Save a given Post to the current User’s stars. This is just a “save” action, not a sharing action.
 
-+ Model (application/hal+json)
+*Note: A repost cannot be starred. Please star the parent Post.*
 
-    HAL+JSON representation of Star Resource.
-
-    + Headers
-
-            Link: <http:/api.gistfox.com/gists/42/star>;rel="self"
-
-    + Body
-
-            {
-                "_links": {
-                    "self": { "href": "/gists/42/star" },
-                },
-                "starred": true
-            }
-
-### Star a Gist [PUT]
-+ Response 204
-
-### Unstar a Gist [DELETE]
-+ Response 204
-
-### Check if a Gist is Starred [GET]
 + Response 200
+    
+    [Post][]
 
-    [Star][]
+### Unstar a Post [DELETE]
+Remove a Star from a Post.
+
++ Response 200
+        
+    [Post][]
