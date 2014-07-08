@@ -6,7 +6,9 @@ Autogenerate API blueprint documentation with CI for Github pages access.
 
 ### TL;DR
 
-Make great docs for each branch (with an API blueprint) on your Github repo. Add your API spec as `api.apib` in the root of your repo and push! Your documents will be available at `http://org.github.io/repo/branch`. See the [branches](https://github.com/renewablefunding/blueprint-docify/branches) on this repo and thier related docs:
+**Add your API spec as `api.apib` in the root of your repo and push!**
+
+It will make great API docs for each branch that has an API blueprint. Your documents will be available at `http://org.github.io/repo/branch`. See the [branches](https://github.com/renewablefunding/blueprint-docify/branches) on this repo and thier related docs:
 
 - http://renewablefunding.github.io/blueprint-docify/gist-fox-api/
 - http://renewablefunding.github.io/blueprint-docify/real-world-api/
