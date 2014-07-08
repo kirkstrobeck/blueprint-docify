@@ -1,0 +1,223 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Gist Fox API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
+  font-family: 'Roboto' sans-serif !important;
+}
+h1,
+h2,
+h3,
+.aglio {
+  font-family: 'Raleway' sans-serif !important;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  display: none;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a {
+  display: inline;
+}
+code {
+  color: #444;
+  background-color: #ddd;
+  font-family: 'Inconsolata' monospace !important;
+}
+a[data-target] {
+  cursor: pointer;
+}
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.back-to-top {
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 24px;
+  padding: 4px 8px;
+  background-color: #eee;
+  text-decoration: none !important;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel {
+  overflow: hidden;
+}
+.panel-heading code {
+  color: #c7254e;
+  background-color: transparent;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.panel-heading h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a.list-group-item {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.list-group-item.heading {
+  background-color: #f5f5f5;
+}
+.list-group-item.collapse {
+  display: none;
+}
+.list-group-item.collapse.in {
+  display: block;
+}
+#nav {
+  margin-top: 38px;
+  min-width: 255px;
+  top: 0;
+  bottom: 0;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+@media (max-width: 1199px) {
+  #nav {
+    min-width: 212px;
+  }
+}
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a href="#" class="list-group-item heading">Resource Group</a><a href="#-gist-fox-api-root" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;Gist Fox API Root</a></div><div class="list-group"><a href="#gist" class="list-group-item heading">Gist</a><a href="#gist-gist" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Gist</a><a href="#gist-gist-get" style="padding-left: 32px" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;Retrieve a Single Gist</a><a href="#gist-gist-patch" style="padding-left: 32px" class="list-group-item"><i class="fa fa-pencil"></i>&nbsp;Edit a Gist</a><a href="#gist-gist-delete" style="padding-left: 32px" class="list-group-item"><i class="fa fa-warning"></i>&nbsp;Delete a Gist</a><a href="#gist-gists-collection" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Gists Collection</a><a href="#gist-gists-collection-get" style="padding-left: 32px" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;List All Gists</a><a href="#gist-gists-collection-post" style="padding-left: 32px" class="list-group-item"><i class="fa fa-plus-square"></i>&nbsp;Create a Gist</a><a href="#gist-star" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Star</a><a href="#gist-star-put" style="padding-left: 32px" class="list-group-item"><i class="fa fa-pencil"></i>&nbsp;Star a Gist</a><a href="#gist-star-delete" style="padding-left: 32px" class="list-group-item"><i class="fa fa-warning"></i>&nbsp;Unstar a Gist</a><a href="#gist-star-get" style="padding-left: 32px" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;Check if a Gist is Starred</a></div></nav></div><div class="col-md-9"><div><header><div class="page-header"><h1 id="top">Gist Fox API</h1></div></header><div class="description"><p>Gist Fox API is a <strong>pastes service</strong> similar to <a href="http://gist.github.com">GitHub’s Gist</a>.</p>
+<h2 id="authentication">Authentication</h2>
+<p>Currently the Gist Fox API does not provide authenticated access.</p>
+<h2 id="media-types">Media Types</h2>
+<p>Where applicable this API uses the <a href="https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md">HAL+JSON</a> media-type to represent resources states and affordances.</p>
+<p>Requests with a message-body are using plain JSON to set or update resource states.</p>
+<h2 id="error-states">Error States</h2>
+<p>The common <a href="https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md">HTTP Response Status Codes</a> are used.</p>
+</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="">Resource Group&nbsp;<a href="#"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="-gist-fox-api-root">Gist Fox API Root&nbsp;<a href="#-gist-fox-api-root"><i class="fa fa-link"></i></a></h4><p>Gist Fox API entry point.</p>
+<p>This resource does not have any attributes. Instead it offers the initial API affordances in the form of the HTTP Link header and 
+HAL links.</p>
+<section id="-gist-fox-api-root-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve the Entry Point</span></div><div style="float:left"><a href="#-gist-fox-api-root-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/</code></div></div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#24e0929f052601f3922ad19d109b27c5" class="pull-right">Toggle</a></li><li id="24e0929f052601f3922ad19d109b27c5" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/&gt;;rel="self",&lt;http:/api.gistfox.com/gists&gt;;rel="gists"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/"</span> </span>}</span>,
+        "<span class="hljs-attribute">gists</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists?{since}"</span></span>, "<span class="hljs-attribute">templated</span>": <span class="hljs-value"><span class="hljs-literal">true</span> </span>}
+    </span>}
+</span>}
+</code></pre></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="gist">Gist&nbsp;<a href="#gist"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Gist-related resources of <em>Gist Fox API</em>.</p>
+<h4 id="gist-gist">Gist&nbsp;<a href="#gist-gist"><i class="fa fa-link"></i></a></h4><p>A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.</p>
+<p>The Gist resource has the following attributes: </p>
+<ul>
+<li>id</li>
+<li>created_at</li>
+<li>description</li>
+<li>content</li>
+</ul>
+<p>The states <em>id</em> and <em>created_at</em> are assigned by the Gist Fox API at the moment of creation. </p>
+<section id="gist-gist-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve a Single Gist</span></div><div style="float:left"><a href="#gist-gist-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/gists/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the Gist in the form of a hash.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#48c583c83d27a7785afb41b1add46e91" class="pull-right">Toggle</a></li><li id="48c583c83d27a7785afb41b1add46e91" class="list-group-item panel-collapse collapse"><div class="description"><p>HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/gists/42&gt;;rel="self", &lt;http:/api.gistfox.com/gists/42/star&gt;;rel="star"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42"</span> </span>}</span>,
+        "<span class="hljs-attribute">star</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42/star"</span> </span>}</span>,
+    }</span>,
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"42"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-04-14T02:15:15Z"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Description of Gist"</span></span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"String contents"</span>
+</span>}
+</code></pre></li></ul></section><section id="gist-gist-patch" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Edit a Gist</span></div><div style="float:left"><a href="#gist-gist-patch" class="btn btn-xs btn-warning">PATCH</a></div><div style="overflow:hidden"><code>/gists/{id}</code></div></div><div class="panel-body"><p>To update a Gist send a JSON with updated value for one or more of the Gist resource attributes. All attributes values (states) from the previous version of this Gist are carried over by default if not included in the hash.</p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the Gist in the form of a hash.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#3d7826e2180f969c9e7fdc228dd3b041" class="pull-right">Toggle</a></li><li id="3d7826e2180f969c9e7fdc228dd3b041" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"Updated file contents"</span>
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#7e2e18f6ca148f86ec4c34938063a1be" class="pull-right">Toggle</a></li><li id="7e2e18f6ca148f86ec4c34938063a1be" class="list-group-item panel-collapse collapse"><div class="description"><p>HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/gists/42&gt;;rel="self", &lt;http:/api.gistfox.com/gists/42/star&gt;;rel="star"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42"</span> </span>}</span>,
+        "<span class="hljs-attribute">star</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42/star"</span> </span>}</span>,
+    }</span>,
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"42"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-04-14T02:15:15Z"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Description of Gist"</span></span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"String contents"</span>
+</span>}
+</code></pre></li></ul></section><section id="gist-gist-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Delete a Gist</span></div><div style="float:left"><a href="#gist-gist-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/gists/{id}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the Gist in the form of a hash.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><h4 id="gist-gists-collection">Gists Collection&nbsp;<a href="#gist-gists-collection"><i class="fa fa-link"></i></a></h4><p>Collection of all Gists.</p>
+<p>The Gist Collection resource has the following attribute:</p>
+<ul>
+<li>total</li>
+</ul>
+<p>In addition it <strong>embeds</strong> <em>Gist Resources</em> in the Gist Fox API.</p>
+<section id="gist-gists-collection-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">List All Gists</span></div><div style="float:left"><a href="#gist-gists-collection-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/gists{?since}</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>since</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>Timestamp in ISO 8601 format: <code>YYYY-MM-DDTHH:MM:SSZ</code> Only gists updated at or after this time are returned.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#3ba8a898ad5f963617786affffa73d81" class="pull-right">Toggle</a></li><li id="3ba8a898ad5f963617786affffa73d81" class="list-group-item panel-collapse collapse"><div class="description"><p>HAL+JSON representation of Gist Collection Resource. The Gist resources in collections are embedded. Note the embedded Gists resource are incomplete representations of the Gist in question. Use the respective Gist link to retrieve its full representation.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/gists&gt;;rel="self"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists"</span> </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">_embedded</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">gists</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">_links</span>" : <span class="hljs-value">{
+                    "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42"</span> </span>}
+                </span>}</span>,
+                "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"42"</span></span>,
+                "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-04-14T02:15:15Z"</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Description of Gist"</span>
+            </span>}
+        ]
+    </span>}</span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}
+</code></pre></li></ul></section><section id="gist-gists-collection-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create a Gist</span></div><div style="float:left"><a href="#gist-gists-collection-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/gists{?since}</code></div></div><div class="panel-body"><p>To create a new Gist simply provide a JSON hash of the <em>description</em> and <em>content</em> attributes for the new Gist. </p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#2e83dc32ac89ed34da00a830c002f9df" class="pull-right">Toggle</a></li><li id="2e83dc32ac89ed34da00a830c002f9df" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Description of Gist"</span></span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"String content"</span>
+</span>}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#188e33f1564fe1d388348fa0997155e6" class="pull-right">Toggle</a></li><li id="188e33f1564fe1d388348fa0997155e6" class="list-group-item panel-collapse collapse"><div class="description"><p>HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/gists/42&gt;;rel="self", &lt;http:/api.gistfox.com/gists/42/star&gt;;rel="star"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42"</span> </span>}</span>,
+        "<span class="hljs-attribute">star</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42/star"</span> </span>}</span>,
+    }</span>,
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"42"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2014-04-14T02:15:15Z"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Description of Gist"</span></span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"String contents"</span>
+</span>}
+</code></pre></li></ul></section><h4 id="gist-star">Star&nbsp;<a href="#gist-star"><i class="fa fa-link"></i></a></h4><p>Star resource represents a Gist starred status. </p>
+<p>The Star resource has the following attribute:</p>
+<ul>
+<li>starred</li>
+</ul>
+<section id="gist-star-put" class="panel panel-warning"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Star a Gist</span></div><div style="float:left"><a href="#gist-star-put" class="btn btn-xs btn-warning">PUT</a></div><div style="overflow:hidden"><code>/gists/{id}/star</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the gist in the form of a hash</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><section id="gist-star-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Unstar a Gist</span></div><div style="float:left"><a href="#gist-star-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/gists/{id}/star</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the gist in the form of a hash</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><section id="gist-star-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Check if a Gist is Starred</span></div><div style="float:left"><a href="#gist-star-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/gists/{id}/star</code></div></div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<p>ID of the gist in the form of a hash</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#f932d5d1eb9643b982d13ab73d7ebe7a" class="pull-right">Toggle</a></li><li id="f932d5d1eb9643b982d13ab73d7ebe7a" class="list-group-item panel-collapse collapse"><div class="description"><p>HAL+JSON representation of Star Resource.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/hal+json</span><br><span class="hljs-attribute">Link</span>: <span class="hljs-string">&lt;http:/api.gistfox.com/gists/42/star&gt;;rel="self"</span><br></code></pre><h5>Body</h5><pre><code>{
+    "<span class="hljs-attribute">_links</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">self</span>": <span class="hljs-value">{ "<span class="hljs-attribute">href</span>": <span class="hljs-value"><span class="hljs-string">"/gists/42/star"</span> </span>}</span>,
+    }</span>,
+    "<span class="hljs-attribute">starred</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}
+</code></pre></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 08 Jul 2014</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+
+</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
+  if (location.protocol === 'file:') {
+    document.getElementById('localFile').style.display = 'block';
+  }
+
+}).call(this);
+</script><script>(function() {
+  $('table').addClass('table');
+
+}).call(this);
+</script></html>
