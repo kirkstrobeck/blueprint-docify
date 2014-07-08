@@ -1,0 +1,13 @@
+{
+  "name": "Blueprint docify",
+  "version": "0.0.1",
+  "description": "Autogenerate API blueprint documentation with CI for Github pages access",
+  "author": "Renewable Funding",
+  "license": "MIT",
+  "dependencies": {
+    "aglio": "^1.14.0",
+    "async": "^0.9.0",
+    "lodash": "^2.4.1",
+    "node-fs": "^0.1.7"
+  }
+}
