@@ -6,7 +6,7 @@ Autogenerate API blueprint documentation with CI for Github pages access.
 
 ### TL;DR
 
-Make great docs for each branch with an API blueprint on your Github repo. See the [branches](https://github.com/renewablefunding/blueprint-docify/branches) on this repo and thier related docs:
+Make great docs for each branch (with an API blueprint) on your Github repo. Add your API spec as `api.apib` in the root of your repo and push! Your documents will be available at `http://org.github.io/repo/branch`. See the [branches](https://github.com/renewablefunding/blueprint-docify/branches) on this repo and thier related docs:
 
 - http://renewablefunding.github.io/blueprint-docify/gist-fox-api/
 - http://renewablefunding.github.io/blueprint-docify/real-world-api/
@@ -56,10 +56,6 @@ Make great docs for each branch with an API blueprint on your Github repo. See t
 2. Modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` in the repo you want to equip.
 
 Now you should be connected to Shippable and it should build out your API documentation on push. If you don’t want to run Shippable on a specific push, include `[skip ci]` in your commit message.
-
-Add your API spec as `api.apib` in the root of your repo and push!
-
-Your documents will be available at `http://org.github.io/repo/branch`, ie. http://projectdx.github.io/apib/master
 
 
 ### Why we made it
