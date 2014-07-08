@@ -8,8 +8,6 @@ Autogenerate API blueprint documentation with CI for Github pages access.
 
 Make great docs like [THIS]() for each branch on your Github repo.
 
-1. Pull this repo down and modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` to your repo.
-
 1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added.
 
 2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). Use your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
@@ -31,22 +29,24 @@ Make great docs like [THIS]() for each branch on your Github repo.
 
 ### Equip your repo
 
-Copy the following files to your repo:
+1. Pull down this repo and copy the following files to the repo you want to equip:
 
-```bash
-blueprint-docify
-package.json
-shippable.yml
-```
+    ```bash
+    blueprint-docify
+    package.json
+    shippable.yml
+    ```
 
-If you already have a `package.json` then run the following:
+    If you already have a `package.json` then run the following:
 
-```bash
-npm install aglio@1.14 --save
-npm install async@0.9 --save
-npm install lodash@2.4 --save
-npm install node-fs@0.1 --save
-```
+    ```bash
+    npm install aglio@1.14 --save
+    npm install async@0.9 --save
+    npm install lodash@2.4 --save
+    npm install node-fs@0.1 --save
+    ```
+
+2. Modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` in the repo you want to equip.
 
 Now you should be connected to Shippable and it should build out your API documentation on push. If you don’t want to run Shippable on a specific push, include `[skip ci]` in your commit message.
 
