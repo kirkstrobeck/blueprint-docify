@@ -14,6 +14,7 @@ See the [branches](https://github.com/renewablefunding/blueprint-docify/branches
 - http://renewablefunding.github.io/blueprint-docify/real-world-api/
 - http://renewablefunding.github.io/blueprint-docify/simplest-api/
 
+
 1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added.
 
 2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). Use your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
