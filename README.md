@@ -6,7 +6,13 @@ Autogenerate API blueprint documentation with CI for Github pages access.
 
 ### Getting started
 
-Make great docs like [THIS]() for each branch on your Github repo.
+Make great docs for each branch with an API blueprint on your Github repo.
+
+See the [branches](https://github.com/renewablefunding/blueprint-docify/branches) on this repo and the following related docs:
+
+- http://renewablefunding.github.io/blueprint-docify/gist-fox-api/
+- http://renewablefunding.github.io/blueprint-docify/real-world-api/
+- http://renewablefunding.github.io/blueprint-docify/simplest-api/
 
 1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added.
 
