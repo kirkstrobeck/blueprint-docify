@@ -1,5 +1,5 @@
 {
-  "name": "Blueprint docify",
+  "name": "blueprint-docify",
   "version": "0.0.1",
   "description": "Autogenerate API blueprint documentation with CI for Github pages access",
   "author": "Renewable Funding",
