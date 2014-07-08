@@ -1,0 +1,376 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Real World API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
+  font-family: 'Roboto' sans-serif !important;
+}
+h1,
+h2,
+h3,
+.aglio {
+  font-family: 'Raleway' sans-serif !important;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  display: none;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a {
+  display: inline;
+}
+code {
+  color: #444;
+  background-color: #ddd;
+  font-family: 'Inconsolata' monospace !important;
+}
+a[data-target] {
+  cursor: pointer;
+}
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.back-to-top {
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 24px;
+  padding: 4px 8px;
+  background-color: #eee;
+  text-decoration: none !important;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel {
+  overflow: hidden;
+}
+.panel-heading code {
+  color: #c7254e;
+  background-color: transparent;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.panel-heading h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a.list-group-item {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.list-group-item.heading {
+  background-color: #f5f5f5;
+}
+.list-group-item.collapse {
+  display: none;
+}
+.list-group-item.collapse.in {
+  display: block;
+}
+#nav {
+  margin-top: 38px;
+  min-width: 255px;
+  top: 0;
+  bottom: 0;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+@media (max-width: 1199px) {
+  #nav {
+    min-width: 212px;
+  }
+}
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a href="#posts" class="list-group-item heading">Posts</a><a href="#posts-post" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Post</a><a href="#posts-post-get" style="padding-left: 32px" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;Retrieve a Post</a><a href="#posts-post-delete" style="padding-left: 32px" class="list-group-item"><i class="fa fa-warning"></i>&nbsp;Delete a Post</a><a href="#posts-posts-collection" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Posts Collection</a><a href="#posts-posts-collection-post" style="padding-left: 32px" class="list-group-item"><i class="fa fa-plus-square"></i>&nbsp;Create a Post</a><a href="#posts-posts-collection-get" style="padding-left: 32px" class="list-group-item"><i class="fa fa-arrow-circle-down"></i>&nbsp;Retrieve all Posts</a><a href="#posts-stars" class="list-group-item"><i class="fa fa-bars"></i>&nbsp;Stars</a><a href="#posts-stars-post" style="padding-left: 32px" class="list-group-item"><i class="fa fa-plus-square"></i>&nbsp;Star a Post</a><a href="#posts-stars-delete" style="padding-left: 32px" class="list-group-item"><i class="fa fa-warning"></i>&nbsp;Unstar a Post</a></div><p style="text-align: center"><a href="https://alpha-api.app.net">https://alpha-api.app.net</a></p></nav></div><div class="col-md-9"><div><header><div class="page-header"><h1 id="top">Real World API</h1></div></header><div class="description"><p>This API Blueprint demonstrates a real world example documenting a portion of <a href="http://developers.app.net">App.net API</a>.</p>
+<p>NOTE: This document is a <strong>work in progress</strong>.</p>
+</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="posts">Posts&nbsp;<a href="#posts"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>This section groups App.net post resources.</p>
+<h4 id="posts-post">Post&nbsp;<a href="#posts-post"><i class="fa fa-link"></i></a></h4><p>A Post is the other central object utilized by the App.net Stream API. It has rich text and annotations which comprise all of the content a users sees in their feed. Posts are closely tied to the follow graph…</p>
+<section id="posts-post-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve a Post</span></div><div style="float:left"><a href="#posts-post-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/stream/0/posts/{post_id}</code></div></div><div class="panel-body"><p>Returns a specific Post.</p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>post_id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>The id of the Post.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#5d20dbbf5c3698d74aa49dc09c7c28d9" class="pull-right">Toggle</a></li><li id="5d20dbbf5c3698d74aa49dc09c7c28d9" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is <span class="hljs-literal">a</span> string
+        <span class="hljs-string">"user"</span>: {
+            ...
+        },
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2012-07-16T17:25:47Z"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"@berg FIRST post on this new site #newsocialnetwork"</span>,
+        <span class="hljs-string">"html"</span>: <span class="hljs-string">"&lt;span itemprop=\"</span>mention\<span class="hljs-string">" data-mention-name=\"</span>berg\<span class="hljs-string">" data-mention-id=\"</span><span class="hljs-number">2</span>\<span class="hljs-string">"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"</span>https://join.app.net\<span class="hljs-string">" rel=\"</span>nofollow\<span class="hljs-string">"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"</span>hashtag\<span class="hljs-string">" data-hashtag-name=\"</span>newsocialnetwork\<span class="hljs-string">"&gt;#newsocialnetwork&lt;/span&gt;."</span>,
+        <span class="hljs-string">"source"</span>: {
+            <span class="hljs-string">"client_id"</span>: <span class="hljs-string">"udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Clientastic for iOS"</span>,
+            <span class="hljs-string">"link"</span>: <span class="hljs-string">"http://app.net"</span>
+        },
+        <span class="hljs-string">"machine_only"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"reply_to"</span>: null,
+        <span class="hljs-string">"thread_id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-string">"num_replies"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">"num_reposts"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"num_stars"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"entities"</span>: {
+            <span class="hljs-string">"mentions"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"berg"</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">0</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">5</span>
+            }],
+            <span class="hljs-string">"hashtags"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"newsocialnetwork"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">34</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">17</span>
+            }],
+            <span class="hljs-string">"links"</span>: [{
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"this new site"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://join.app.net"</span>
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">20</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">13</span>
+            }]
+        },
+        <span class="hljs-string">"you_reposted"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"you_starred"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li></ul></section><section id="posts-post-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Delete a Post</span></div><div style="float:left"><a href="#posts-post-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/stream/0/posts/{post_id}</code></div></div><div class="panel-body"><p>Delete a Post. The current user must be the same user who created the Post. it returns the deleted Post on success.</p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>post_id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>The id of the Post.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>204</code></strong></li></ul></section><h4 id="posts-posts-collection">Posts Collection&nbsp;<a href="#posts-posts-collection"><i class="fa fa-link"></i></a></h4><p>A Collection of posts.</p>
+<section id="posts-posts-collection-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create a Post</span></div><div style="float:left"><a href="#posts-posts-collection-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/stream/0/posts</code></div></div><div class="panel-body"><p>Create a new Post object. Mentions and hashtags will be parsed out of the post text, as will bare URLs…</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#ce4d69da6634be999f9b15d045f6e1e7" class="pull-right">Toggle</a></li><li id="ce4d69da6634be999f9b15d045f6e1e7" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is <span class="hljs-literal">a</span> string
+        <span class="hljs-string">"user"</span>: {
+            ...
+        },
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2012-07-16T17:25:47Z"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"@berg FIRST post on this new site #newsocialnetwork"</span>,
+        <span class="hljs-string">"html"</span>: <span class="hljs-string">"&lt;span itemprop=\"</span>mention\<span class="hljs-string">" data-mention-name=\"</span>berg\<span class="hljs-string">" data-mention-id=\"</span><span class="hljs-number">2</span>\<span class="hljs-string">"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"</span>https://join.app.net\<span class="hljs-string">" rel=\"</span>nofollow\<span class="hljs-string">"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"</span>hashtag\<span class="hljs-string">" data-hashtag-name=\"</span>newsocialnetwork\<span class="hljs-string">"&gt;#newsocialnetwork&lt;/span&gt;."</span>,
+        <span class="hljs-string">"source"</span>: {
+            <span class="hljs-string">"client_id"</span>: <span class="hljs-string">"udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Clientastic for iOS"</span>,
+            <span class="hljs-string">"link"</span>: <span class="hljs-string">"http://app.net"</span>
+        },
+        <span class="hljs-string">"machine_only"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"reply_to"</span>: null,
+        <span class="hljs-string">"thread_id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-string">"num_replies"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">"num_reposts"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"num_stars"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"entities"</span>: {
+            <span class="hljs-string">"mentions"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"berg"</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">0</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">5</span>
+            }],
+            <span class="hljs-string">"hashtags"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"newsocialnetwork"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">34</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">17</span>
+            }],
+            <span class="hljs-string">"links"</span>: [{
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"this new site"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://join.app.net"</span>
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">20</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">13</span>
+            }]
+        },
+        <span class="hljs-string">"you_reposted"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"you_starred"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>201</code></strong><a data-toggle="collapse" data-target="#25ff7ce43dfa049b5fdc4a32d0db0aad" class="pull-right">Toggle</a></li><li id="25ff7ce43dfa049b5fdc4a32d0db0aad" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is <span class="hljs-literal">a</span> string
+        <span class="hljs-string">"user"</span>: {
+            ...
+        },
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2012-07-16T17:25:47Z"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"@berg FIRST post on this new site #newsocialnetwork"</span>,
+        <span class="hljs-string">"html"</span>: <span class="hljs-string">"&lt;span itemprop=\"</span>mention\<span class="hljs-string">" data-mention-name=\"</span>berg\<span class="hljs-string">" data-mention-id=\"</span><span class="hljs-number">2</span>\<span class="hljs-string">"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"</span>https://join.app.net\<span class="hljs-string">" rel=\"</span>nofollow\<span class="hljs-string">"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"</span>hashtag\<span class="hljs-string">" data-hashtag-name=\"</span>newsocialnetwork\<span class="hljs-string">"&gt;#newsocialnetwork&lt;/span&gt;."</span>,
+        <span class="hljs-string">"source"</span>: {
+            <span class="hljs-string">"client_id"</span>: <span class="hljs-string">"udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Clientastic for iOS"</span>,
+            <span class="hljs-string">"link"</span>: <span class="hljs-string">"http://app.net"</span>
+        },
+        <span class="hljs-string">"machine_only"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"reply_to"</span>: null,
+        <span class="hljs-string">"thread_id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-string">"num_replies"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">"num_reposts"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"num_stars"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"entities"</span>: {
+            <span class="hljs-string">"mentions"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"berg"</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">0</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">5</span>
+            }],
+            <span class="hljs-string">"hashtags"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"newsocialnetwork"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">34</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">17</span>
+            }],
+            <span class="hljs-string">"links"</span>: [{
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"this new site"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://join.app.net"</span>
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">20</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">13</span>
+            }]
+        },
+        <span class="hljs-string">"you_reposted"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"you_starred"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li></ul></section><section id="posts-posts-collection-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Retrieve all Posts</span></div><div style="float:left"><a href="#posts-posts-collection-get" class="btn btn-xs btn-primary">GET</a></div><div style="overflow:hidden"><code>/stream/0/posts</code></div></div><div class="panel-body"><p>Retrieves all posts.</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#98b1aaa52ed30b3df7d520c61ed00613" class="pull-right">Toggle</a></li><li id="98b1aaa52ed30b3df7d520c61ed00613" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: [
+        {
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is a string
+            <span class="hljs-keyword">...</span>
+        },
+        {
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+            <span class="hljs-keyword">...</span>
+        },
+        {
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"3"</span>,
+            <span class="hljs-keyword">...</span>
+        },
+    ],
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li></ul></section><h4 id="posts-stars">Stars&nbsp;<a href="#posts-stars"><i class="fa fa-link"></i></a></h4><p>A User’s stars are visible to others, but they are not automatically added to your followers’ streams.</p>
+<section id="posts-stars-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Star a Post</span></div><div style="float:left"><a href="#posts-stars-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/stream/0/posts/{post_id}/star</code></div></div><div class="panel-body"><p>Save a given Post to the current User’s stars. This is just a “save” action, not a sharing action.</p>
+<p><em>Note: A repost cannot be starred. Please star the parent Post.</em></p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>post_id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>The id of the Post.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#5e94846967a7465c36e671437b8c2cb1" class="pull-right">Toggle</a></li><li id="5e94846967a7465c36e671437b8c2cb1" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is <span class="hljs-literal">a</span> string
+        <span class="hljs-string">"user"</span>: {
+            ...
+        },
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2012-07-16T17:25:47Z"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"@berg FIRST post on this new site #newsocialnetwork"</span>,
+        <span class="hljs-string">"html"</span>: <span class="hljs-string">"&lt;span itemprop=\"</span>mention\<span class="hljs-string">" data-mention-name=\"</span>berg\<span class="hljs-string">" data-mention-id=\"</span><span class="hljs-number">2</span>\<span class="hljs-string">"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"</span>https://join.app.net\<span class="hljs-string">" rel=\"</span>nofollow\<span class="hljs-string">"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"</span>hashtag\<span class="hljs-string">" data-hashtag-name=\"</span>newsocialnetwork\<span class="hljs-string">"&gt;#newsocialnetwork&lt;/span&gt;."</span>,
+        <span class="hljs-string">"source"</span>: {
+            <span class="hljs-string">"client_id"</span>: <span class="hljs-string">"udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Clientastic for iOS"</span>,
+            <span class="hljs-string">"link"</span>: <span class="hljs-string">"http://app.net"</span>
+        },
+        <span class="hljs-string">"machine_only"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"reply_to"</span>: null,
+        <span class="hljs-string">"thread_id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-string">"num_replies"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">"num_reposts"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"num_stars"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"entities"</span>: {
+            <span class="hljs-string">"mentions"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"berg"</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">0</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">5</span>
+            }],
+            <span class="hljs-string">"hashtags"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"newsocialnetwork"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">34</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">17</span>
+            }],
+            <span class="hljs-string">"links"</span>: [{
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"this new site"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://join.app.net"</span>
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">20</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">13</span>
+            }]
+        },
+        <span class="hljs-string">"you_reposted"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"you_starred"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li></ul></section><section id="posts-stars-delete" class="panel panel-danger"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Unstar a Post</span></div><div style="float:left"><a href="#posts-stars-delete" class="btn btn-xs btn-danger">DELETE</a></div><div style="overflow:hidden"><code>/stream/0/posts/{post_id}/star</code></div></div><div class="panel-body"><p>Remove a Star from a Post.</p>
+</div><ul class="list-group"><li class="list-group-item bg-default"><strong>Parameters</strong></li><li class="list-group-item"><dl class="dl-horizontal"><dt>post_id</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>The id of the Post.</p>
+</dd></dl></li></ul><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#abb67a4fb5ec164b6335266530b65e73" class="pull-right">Toggle</a></li><li id="abb67a4fb5ec164b6335266530b65e73" class="list-group-item panel-collapse collapse"><div class="description"></div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-string">"data"</span>: {
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1"</span>, // note this is <span class="hljs-literal">a</span> string
+        <span class="hljs-string">"user"</span>: {
+            ...
+        },
+        <span class="hljs-string">"created_at"</span>: <span class="hljs-string">"2012-07-16T17:25:47Z"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"@berg FIRST post on this new site #newsocialnetwork"</span>,
+        <span class="hljs-string">"html"</span>: <span class="hljs-string">"&lt;span itemprop=\"</span>mention\<span class="hljs-string">" data-mention-name=\"</span>berg\<span class="hljs-string">" data-mention-id=\"</span><span class="hljs-number">2</span>\<span class="hljs-string">"&gt;@berg&lt;/span&gt; FIRST post on &lt;a href=\"</span>https://join.app.net\<span class="hljs-string">" rel=\"</span>nofollow\<span class="hljs-string">"&gt;this new site&lt;/a&gt; &lt;span itemprop=\"</span>hashtag\<span class="hljs-string">" data-hashtag-name=\"</span>newsocialnetwork\<span class="hljs-string">"&gt;#newsocialnetwork&lt;/span&gt;."</span>,
+        <span class="hljs-string">"source"</span>: {
+            <span class="hljs-string">"client_id"</span>: <span class="hljs-string">"udxGzAVBdXwGtkHmvswR5MbMEeVnq6n4"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Clientastic for iOS"</span>,
+            <span class="hljs-string">"link"</span>: <span class="hljs-string">"http://app.net"</span>
+        },
+        <span class="hljs-string">"machine_only"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"reply_to"</span>: null,
+        <span class="hljs-string">"thread_id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-string">"num_replies"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">"num_reposts"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"num_stars"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"entities"</span>: {
+            <span class="hljs-string">"mentions"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"berg"</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"2"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">0</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">5</span>
+            }],
+            <span class="hljs-string">"hashtags"</span>: [{
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"newsocialnetwork"</span>,
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">34</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">17</span>
+            }],
+            <span class="hljs-string">"links"</span>: [{
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"this new site"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://join.app.net"</span>
+                <span class="hljs-string">"pos"</span>: <span class="hljs-number">20</span>,
+                <span class="hljs-string">"len"</span>: <span class="hljs-number">13</span>
+            }]
+        },
+        <span class="hljs-string">"you_reposted"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"you_starred"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"meta"</span>: {
+        <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
+    }
+}
+</code></pre></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 08 Jul 2014</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+
+</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
+  if (location.protocol === 'file:') {
+    document.getElementById('localFile').style.display = 'block';
+  }
+
+}).call(this);
+</script><script>(function() {
+  $('table').addClass('table');
+
+}).call(this);
+</script></html>
