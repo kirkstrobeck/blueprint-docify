@@ -8,6 +8,8 @@ Autogenerate API blueprint documentation with CI for Github pages access.
 
 Make great docs like [THIS]() for each branch on your Github repo.
 
+1. Pull this repo down and modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` to your repo.
+
 1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added.
 
 2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). Use your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
