@@ -71,7 +71,7 @@ Problems with Apiary or any other tool like it:
 - Maintain *n* number of apiairys per-branch * per-repo * per-org where *n* is way too many (more than 1). Where is the documentation with these links? How do you handle elegant naming conventions when it is a shared namespace, ie. `http://docs.notelegant.apiary.io/`
 - It’s is slow, sometimes down, etc. (it’s another external dependency)
 - Is github our source of truth? or where do I look? Is that up to date? Where’s the changelog!
-- Please show me the diff between this API and that one (different branches)
+- Please show me the [diff](https://github.com/renewablefunding/blueprint-docify/compare/2109e40f1cfc0a50ca87cdc08389f7ef93cb5037...6dfb5bea8f74ed0e76a069264662c530c6bf0ff6) between this API and that one (different branches)
 - Apiary only lets me write one file per repo! I have other branches, each with a unique API spec, because the API is in development!
 
 
