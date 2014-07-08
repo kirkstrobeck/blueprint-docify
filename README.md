@@ -16,7 +16,11 @@ Make great docs like [THIS]() for each branch on your Github repo.
 
 4. Log in to github as the bot.
 
-5. Create the branch `gh-pages` on your repo.
+5. Create the [orphan](http://stackoverflow.com/a/4288660) branch `gh-pages` on your repo.
+  - Use `git checkout --orphan gh-pages`
+  - Delete all of the files in the directory (except `.git` obviously)
+  - Add an empty file with the name `.gitignore`. (run `touch .gitignore`)
+  - Commit, then push to `gh-pages` with `git push --set-upstream origin gh-pages`
 
 6. Create a new [Shippable](https://www.shippable.com/) account as the bot ([login with Github](http://cl.ly/WTQH)). Add your repo on the [settings](https://www.shippable.com/settings) page.
 
