@@ -21,19 +21,17 @@ It will make great API docs for each branch that has an API blueprint ([`.apib`]
 
 1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added. ie. [renewableapibot](https://github.com/renewableapibot) for this repo.
 
-2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). If you’e using Google email, append the first part of your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
+2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). If you're using Google email, append the first part of your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
 
-3. Log in to Github as the bot.
-
-4. Create the [orphan](http://stackoverflow.com/a/4288660) branch `gh-pages` on your repo.
+3. Create the [orphan](http://stackoverflow.com/a/4288660) branch `gh-pages` on your repo.
   - Use `git checkout --orphan gh-pages`
   - Delete all of the files in the directory (except `.git` obviously)
   - Add an empty file with the name `.gitignore`. (run `touch .gitignore`)
   - Commit, then push to `gh-pages` with `git push --set-upstream origin gh-pages`
 
-5. Create a new [Shippable](https://www.shippable.com/) account as the bot ([login with Github](http://cl.ly/WTQH)). Add your repo on the [settings](https://www.shippable.com/settings) page.
+4. Create a new [Shippable](https://www.shippable.com/) account as the bot ([login with Github](http://cl.ly/WTQH)). Add your repo on the [settings](https://www.shippable.com/settings) page.
 
-6. Copy the Shippable [deployment key](https://www.shippable.com/settings/keys) and add it as an [SSH key](https://github.com/settings/ssh) in Github.
+5. Copy the Shippable [deployment key](https://www.shippable.com/settings/keys) and add it as an [SSH key](https://github.com/settings/ssh) in Github.
 
 
 ### Equip your repo
@@ -68,7 +66,7 @@ Problems with Apiary or any other tool like it:
 
 - No way to signify if the response or endpoint is *a hopeful mock*, *old and should be deleted*, *in production*, *in beta*, *wont do*, etc.
 - Can’t [test against](https://github.com/apiaryio/dredd) API spec with custom conditional notes, etc. What stage is each endpoint, etc.
-- Maintain *n* number of apiairys per-branch * per-repo * per-org where *n* is way too many (more than 1). Where is the documentation with these links? How do you handle elegant naming conventions when it is a shared namespace, ie. `http://docs.notelegant.apiary.io/`
+- Maintain *n* number of apiary’s per-branch * per-repo * per-org where *n* is way too many (more than 1). Where is the documentation with these links? How do you handle elegant naming conventions when it is a shared namespace, ie. `http://docs.notelegant.apiary.io/`
 - It’s is slow, sometimes down, etc. (it’s another external dependency)
 - Is Github our source of truth? or where do I look? Is that up to date? Where’s the changelog!
 - Please show me the [diff](https://github.com/renewablefunding/blueprint-docify/compare/2109e40f1cfc0a50ca87cdc08389f7ef93cb5037...6dfb5bea8f74ed0e76a069264662c530c6bf0ff6) between this API and that one (different branches)
@@ -77,23 +75,23 @@ Problems with Apiary or any other tool like it:
 
 ### FAQ
 
-**Q: Can a private repo write a publig Github page?**
+**Q: Can a private repo write a public Github page?**
 Private repos will write [public pages](http://stackoverflow.com/questions/10748082/private-pages-for-a-private-github-repo) :D
 
 **Q: So how does this publish multiple branches docs at once? multiple github pages?**
 It actually pulls gh-pages from your repo to the CI and overwrites the folder with the name of the branch you are pushing to the CI from
 
 **Q: So one rendered branch at a time?**
-yah, when you update an api spec and push, it writes the docs for that branch
+Yah, when you update an api spec and push, it writes the docs for that branch
 
-**Q: What if there’s already an apibot on my repo?**
-If you already have an api bot in your Github organization (someone else followed these steps already), then simply give it accesss to the required repo(s) and try to add it to the same CI account (doesn’t make sense to speard out CI implementations).
+**Q: What if there’s already an api bot on my repo?**
+If you already have an api bot in your Github organization (someone else followed these steps already), then simply give it access to the required repo(s) and try to add it to the same CI account (doesn’t make sense to spread out CI implementations).
 
 **Q: What is this API I see in the examples?**
 We used the example API blueprint from [API Blueprint Examples](https://github.com/apiaryio/api-blueprint/tree/master/examples)
 
 **Q: how many emails you'll get?**
-I belive its just for the Github account confirmation. if the email is in the bot public profile on github, shippable will grab it and use that email for pass/fail messages.
+I believe its just for the Github account confirmation. if the email is in the bot’s public profile on Github, Shippable will grab it and use that email for pass/fail messages.
 
 
 ### Whats coming
@@ -112,3 +110,5 @@ I belive its just for the Github account confirmation. if the email is in the bo
 <hr>
 
 *A [renewable](https://renewfund.com) solution*
+
+
