@@ -3,6 +3,7 @@
 
 **Autogenerate testable and pretty API docs**
 
+![](http://cl.ly/WYzj/Blueprint-Concept2%20copy.jpg)
 
 ### TL;DR
 
