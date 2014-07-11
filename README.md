@@ -19,24 +19,30 @@ It will make great API docs for each branch that has an API blueprint ([`.apib`]
 
 ### Getting started
 
-1. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added. ie. [renewableapibot](https://github.com/renewableapibot) for this repo.
+1. Login to Github as yourself
 
-2. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). If you're using Google email, append the first part of your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
+2. [Create a team](https://github.com/orgs/your-org/new-team) on your organization named `apibot` with [admin access](http://cl.ly/WTMu) to the repos you want to docify. This team will help to limit access by being intentional about what repos are added. ie. [renewableapibot](https://github.com/renewableapibot) for this repo.
 
-3. Create the [orphan](http://stackoverflow.com/a/4288660) branch `gh-pages` on your repo.
+3. Create a new [Github](https://github.com/) account for your *api bot* (ie. [renewableapibot](https://github.com/renewableapibot)). If you're using Google email, append the first part of your email with *+bot*, like *name+bot@domain.com* so you can verify your account, which is a prerequisite to publishing [Github pages](https://pages.github.com/).
+
+4. Create the [orphan](http://stackoverflow.com/a/4288660) branch `gh-pages` on your repo.
   - Use `git checkout --orphan gh-pages`
   - Delete all of the files in the directory (except `.git` obviously)
   - Add an empty file with the name `.gitignore`. (run `touch .gitignore`)
   - Commit, then push to `gh-pages` with `git push --set-upstream origin gh-pages`
 
-4. Create a new [Shippable](https://www.shippable.com/) account as the bot ([login with Github](http://cl.ly/WTQH)). Add your repo on the [settings](https://www.shippable.com/settings) page.
+5. Login to Github as the bot
 
-5. Copy the Shippable [deployment key](https://www.shippable.com/settings/keys) and add it as an [SSH key](https://github.com/settings/ssh) in Github.
+6. Create a new [Shippable](https://www.shippable.com/) account as the bot ([login with Github](http://cl.ly/WTQH)). Add your repo on the [settings](https://www.shippable.com/settings) page.
+
+7. Copy the Shippable [deployment key](https://www.shippable.com/settings/keys) and add it as an [SSH key](https://github.com/settings/ssh) in Github (not under the repo, under the bot’s account).
 
 
 ### Equip your repo
 
-1. Pull down this repo and copy the following files to the repo you want to equip:
+1. Login to Github as yourself
+
+2. Pull down this repo and copy the following files to the repo you want to equip:
 
     ```bash
     blueprint-docify
@@ -53,7 +59,7 @@ It will make great API docs for each branch that has an API blueprint ([`.apib`]
     npm install node-fs@0.1 --save
     ```
 
-2. Modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` in the repo you want to equip.
+3. Modify [line 63](https://github.com/renewablefunding/blueprint-docify/blob/master/blueprint-docify/compile_docs.sh#L63) of `blueprint-docify/compile_docs.sh` in the repo you want to equip.
 
 Now, because of `shippable.yml`, you should be ready to rock. Shippable should build out your API documentation on push. If you don’t want to run Shippable on a specific push, include `[skip ci]` in your commit message.
 
