@@ -112,6 +112,7 @@ I believe its just for the Github account confirmation. if the email is in the b
 
 - API blueprint [contributors](https://github.com/apiaryio/api-blueprint/graphs/contributors)!
 - [Aglio](https://github.com/danielgtaylor/aglio) - An API Blueprint renderer with theme support that outputs static HTML
+- Graphic hacked from [google image search](https://www.google.com/search?q=blueprint&espv=2&source=lnms&tbm=isch&sa=X&ei=v2PAU5PjG6PiiwLM4oD4DQ&ved=0CAYQ_AUoAQ&biw=1360&bih=1084#facrc=_&imgdii=_&imgrc=XwAScrKiGeTnNM%253A%3BzagLXKX-nWP_aM%3Bhttp%253A%252F%252Fsparknodemedia.com%252Fwp-content%252Fuploads%252F2012%252F07%252FBlueprint-Concept2.jpg%3Bhttp%253A%252F%252Fsparknodemedia.com%252Fportfolio%252Fsummer-spectacular-2012-blueprint%252F%3B1200%3B776)
 
 
 <hr>
