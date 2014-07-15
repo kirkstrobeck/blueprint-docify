@@ -1,6 +1,6 @@
 {
   "name": "blueprint-docify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Autogenerate API blueprint documentation with CI for Github pages access",
   "author": "Renewable Funding",
   "license": "MIT",
