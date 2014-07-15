@@ -85,6 +85,7 @@ Problems with Apiary or any other tool like it:
 ### Notes
 
 - Do not use `/` in your branch name if you want it to publish (ie. `feature/awesome`). If you want to fix this V1 issue then please do, it sounds like a great PR to me.
+- This repository follows [git flow](https://github.com/nvie/gitflow) as a [branching model](http://nvie.com/posts/a-successful-git-branching-model/).
 
 
 ### FAQ
