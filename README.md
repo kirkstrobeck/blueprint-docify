@@ -13,9 +13,9 @@ It will make great API docs for each branch that has an API blueprint ([`.apib`]
 
 ***These are for visual purposes only, do not read as spec***
 
-- http://tipfortip.github.io/blueprint-docify/gist-fox-api/
-- http://tipfortip.github.io/blueprint-docify/real-world-api/
-- http://tipfortip.github.io/blueprint-docify/simplest-api/
+- http://kirkstrobeck.github.io/blueprint-docify/gist-fox-api/
+- http://kirkstrobeck.github.io/blueprint-docify/real-world-api/
+- http://kirkstrobeck.github.io/blueprint-docify/simplest-api/
 
 
 ### Getting started
